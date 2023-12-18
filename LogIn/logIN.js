@@ -48,7 +48,8 @@ log_Btn.addEventListener("click", () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("user =>", user);
-        localStorage.setItem("USEREmail", user.email)
+        localStorage.setItem("UserUid", user.uid)
+        // localStorage.setItem("USEREmail", user.email)
         window.location = "../index.html"
       })
       .catch((error) => {
@@ -72,7 +73,7 @@ googlebtn.addEventListener("click", () => {
       const user = result.user;
       console.log(user.displayName);
       console.log(user.email);
-      localStorage.setItem("USEREMAIL", user.email)
+      localStorage.setItem("UserUid", user.uid)
 
       try {
         const docRef = await addDoc(collection(db, "users"), {

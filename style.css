@@ -17,14 +17,22 @@ body{
     padding-top: 15px;
 }
 
-
-
+#count{
+  position: absolute;
+  bottom: 42px;
+  right: 55.3%;
+  color: red;
+}
 .bi{
     font-size: x-large;
     padding-left: -10px;
     position: relative;
     bottom: 5px;
 } 
+#logout{
+  text-align: center !important;
+  margin-right: 20px;
+}
 .Order{
     border-radius: 60px;
     height: 50px;
@@ -32,8 +40,7 @@ body{
     font-size: medium !important;
     border-radius: 60px !important;
     line-height: 20px !important;
-    
-    
+     
    
 }
 .bi-1{

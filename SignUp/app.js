@@ -95,7 +95,7 @@ googlebtn.addEventListener("click", () => {
       const user = result.user;
       console.log(user.displayName)
       console.log(user.email)
-      localStorage.setItem("USEREMAIL", user.email)
+      localStorage.setItem("UserUid", user.uid)
 
       try {
         const docRef = await addDoc(collection(db, "users"), {
