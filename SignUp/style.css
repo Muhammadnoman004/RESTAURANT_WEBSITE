@@ -1,0 +1,251 @@
+body {
+
+    background-image: url("https://img.freepik.com/photos-premium/4k-restaurant-food-menu-burger-pizza-cake-food-menu-ultra-hd-ai-genere-image_669273-222.jpg?size=626&ext=jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+@font-face {
+    font-family: special;
+    src: url('./AbrilFatface-Regular.ttf');
+}
+
+#h1 {
+    padding-top: 40px;
+    color: #666;
+    font-family: special;
+    text-shadow: 2px 2px 1px black;
+    font-weight: bolder;
+    word-spacing: 7px;
+    letter-spacing: 2px;
+    font-size: 40px;
+    text-align: center;
+
+}
+
+.btnn {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 7px;
+    margin-top: -7px;
+    width: 90px;
+    border-radius: 6px;
+    font-size: large;
+}
+
+.btnn:focus {
+    border: 1px solid white;
+}
+
+.button {
+    display: flex;
+    justify-content: space-evenly !important;
+
+}
+
+
+input {
+    width: 100% !important;
+    margin-top: 20px;
+    border: 1px solid #666 !important;
+    opacity: 0.7;
+    
+}
+.label{
+    color: black !important;
+    opacity: 1 !important;
+}
+.main {
+    /* background-color: whitesmoke; */
+    border: 3px double #666;
+    box-shadow: inset 0px 0px 15px;
+    width: 350px;
+    margin-top: 80px;
+    border-radius: 10px;
+    padding: 5px 15px 50px 15px;
+    backdrop-filter: blur(5px) !important;
+
+}
+
+.forget {
+    position: absolute;
+    top: 60px;
+    left: 37%;
+    color: white;
+}
+
+#Google {
+    margin-bottom: 12px;
+    padding: 7px;
+    width: 100%;
+    background-color: white;
+    opacity: 0.7;
+    border: 1px solid #666 !important;
+    border-radius: 5px;
+    background-image: url(./images-removebg-preview.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 16%;
+}
+
+#Google:hover {
+    background-color: #666;
+    color: white;
+    border: none;
+    opacity: 1;
+}
+
+.Google {
+    margin-top: 15px;
+}
+
+.para {
+    padding-top: 10px;
+}
+
+#para {
+    color: white;
+    font-weight: 700;
+}
+
+
+#F_Pass {
+    text-align: center;
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #666;
+    text-shadow: 2px 2px 1px black;
+
+
+}
+
+#send_btn {
+
+    background-color: #666;
+    color: white;
+    border: none !important;
+    padding: 8px;
+    margin-bottom: 7px;
+    width: fit-content;
+    border-radius: 6px;
+    font-size: large;
+
+
+}
+
+#send_btn:focus {
+    border: 1px solid white !important;
+}
+
+.main2 {
+    width: 80%;
+    height: auto;
+    padding: 30px;
+    margin-top: 180px;
+}
+
+.main3 {
+    height: fit-content;
+    width: fit-content;
+    margin-top: 220px;
+}
+
+#wel {
+    padding: 35px;
+    text-align: center;
+    font-size: 6ch;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: rgb(63, 94, 179);
+    text-shadow: 1px 1px 2px black;
+}
+
+#userEmail {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 3ch;
+    color: rgb(63, 94, 179);
+    text-shadow: 1px 1px 2px black;
+    position: relative;
+    bottom: 45px;
+}
+
+
+.button2 {
+    display: flow-root;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: rgb(63, 94, 179);
+    padding: 5px;
+    width: 100%;
+    margin: auto;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 2px solid rgb(63, 94, 179);
+    position: relative;
+    top: 50px;
+
+}
+
+.button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
+
+.button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: rgb(63, 94, 179);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:hover {
+    color: #ffffff;
+    border: 1px solid rgb(63, 94, 179);
+}
+
+.button2:hover:before {
+    top: -35%;
+    background-color: rgb(63, 94, 179);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+    top: -45%;
+    background-color: rgb(63, 94, 179);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
