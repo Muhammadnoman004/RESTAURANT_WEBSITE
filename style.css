@@ -17,12 +17,12 @@ body{
     padding-top: 15px;
 }
 
-#count{
+/* #count{
   position: absolute;
   bottom: 42px;
   right: 55.3%;
   color: red;
-}
+} */
 .bi{
     font-size: x-large;
     padding-left: -10px;

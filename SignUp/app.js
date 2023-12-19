@@ -127,3 +127,7 @@ let getBtn = document.querySelector('#Sbutton1');
 getBtn.addEventListener('click', () => {
   window.location = "../LogIn/logIn.html"
 })
+let adminBtn = document.querySelector("#admin");
+adminBtn.addEventListener("click", ()=>{
+  window.location = "../AdminRegister/AdminSignUp.html";
+})
