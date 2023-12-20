@@ -17,46 +17,49 @@
 
     <div class="container">
 
-        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img
-                        src="https://images-beta.tossdown.com/site/65b73fb7-2706-4440-87b9-9555fcd0ba80.webp"
-                        width="150px" alt=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon bg-light"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active nav-tab" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-tab" href="#">About us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-tab" href="#">Services</a>
 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled nav-tab" aria-disabled="true">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled nav-tab" aria-disabled="true">Get a Franchise</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true"><i class="bi bi-person"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true"><i class="bi bi-cart3"></i></a>
-                            <!-- <span id="count">0</span> -->
-                        </li>
-                    </ul>
-                    <button class="btn btn-danger Order" id="logout">Log Out</button>
+        <div class="main">
 
+            <div>
+                <h1 id="h1">ADD PRODUCT</h1>
+                <h5 id="h6">Grow Your Business With Us.</h5>
+            </div>
 
+            <div class="inputDiv1 inpDiv">
+
+                <div class="form-floating mb-3  ">
+                    <input type="text" class="form-control " id="lemail" placeholder="name@example.com">
+                    <label for="floatingInput" class="label">Item Name</label>
                 </div>
+                <div class="form-floating ">
+                    <input type="text" class="form-control" id="lpass" placeholder="Password">
+                    <label for="floatingPassword" class="label">Item Category</label>
+                </div>
+
+            </div>
+            <div class="inputDiv2 inpDiv">
+
+                <div class="form-floating mb-3  ">
+                    <input type="text" class="form-control " id="lemail" placeholder="name@example.com">
+                    <label for="floatingInput" class="label">Item Description</label>
+                </div>
+                <div class="form-floating ">
+                    <input type="number" class="form-control" id="lpass" placeholder="Password">
+                    <label for="floatingPassword" class="label">Price</label>
+                </div>
+
+                <div class="inputDiv inpDiv">
+                    <input type="file" class="form-control" id="itemImg" placeholder="">
+                </div>
+
+            </div>
+            <br>
+            <button id="Save">Save & Continue</button>
+
+        </div>
+
+    </div>
+
 
 
 </body>
