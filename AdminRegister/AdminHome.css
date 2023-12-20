@@ -1,0 +1,23 @@
+body{
+    background-color: black !important;
+}
+.nav-item > a{
+    color: white !important;
+    padding-left: 13px !important;
+    font-size: medium;
+    padding-top: 25px ;
+    
+}
+.navbar-brand{
+    padding-left: 10px;
+}
+
+.nav-tab{
+    padding-top: 15px;
+}
+.bi{
+    font-size: x-large;
+    padding-left: -10px;
+    position: relative;
+    bottom: 5px;
+}

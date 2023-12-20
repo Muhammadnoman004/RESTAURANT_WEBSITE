@@ -49,7 +49,6 @@ log_Btn.addEventListener("click", () => {
         const user = userCredential.user;
         console.log("user =>", user);
         localStorage.setItem("UserUid", user.uid)
-        // localStorage.setItem("USEREmail", user.email)
         window.location = "../index.html"
       })
       .catch((error) => {

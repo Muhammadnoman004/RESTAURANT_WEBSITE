@@ -33,6 +33,7 @@ LogOutBtn.addEventListener('click', () => {
     // Sign-out successful.
     console.log('logout successfully');
     localStorage.removeItem("UserUid")
+    localStorage.removeItem("AdminUid")
     window.location = "./SignUp/index.html"
   }).catch((error) => {
     console.log(error);
