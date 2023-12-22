@@ -1,33 +1,13 @@
-body{
+body {
     background-image: url("https://images.unsplash.com/photo-1535850452425-140ee4a8dbae?q=80&w=1624&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
-}
-.nav-item > a{
-    color: white !important;
-    padding-left: 13px !important;
-    font-size: medium;
-    padding-top: 25px ;
-    
-}
-.navbar-brand{
-    padding-left: 10px;
-}
-
-.nav-tab{
-    padding-top: 15px;
-}
-.bi{
-    font-size: x-large;
-    padding-left: -10px;
-    position: relative;
-    bottom: 5px;
 }
 
 .main {
     border: 3px double #666;
     box-shadow: inset 0px 0px 15px;
-    width: 500px !important;
+    width: 700px !important;
     margin: auto;
     margin-top: 50px;
     border-radius: 10px;
@@ -35,6 +15,7 @@ body{
     backdrop-filter: blur(2px) !important;
 
 }
+
 #h1 {
     padding-top: 40px;
     color: #666;
@@ -47,23 +28,63 @@ body{
     text-align: center;
 
 }
-#h6{
+
+#h6 {
     text-align: center;
     color: rgba(255, 255, 255, 0.725);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-#itemImg{
+
+#itemImg {
     padding: 15px;
+    margin-top: 17px;
+
 }
-.inpDiv{
-    margin-top: 35px;
+
+#imageOutput {
+    background-color: white;
+    border-radius: 360px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+
+}
+
+.imageoutDiv {
+    
+    display: none;
+}
+#upload{
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 7px;
+    margin-top: 10px;
+    width: 110px;
+    border-radius: 6px;
+    font-size: large;
+}
+#upload:focus{
+    border: 1px solid white;
+
+}
+
+.inpDiv {
+    margin-top: 10px;
     opacity: 0.8;
 }
 
-.inputDiv2{
+.inputDiv2 {
     margin-top: 15px;
 }
-#Save{
+
+#para {
+    color: white;
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+#Save {
     background-color: #666;
     color: white;
     border: none;
@@ -73,3 +94,32 @@ body{
     border-radius: 6px;
     font-size: large;
 }
+#Save:focus{
+    border: 1px solid white;
+}
+#productDiv{
+    /* background-color: white; */
+    margin-top: 40px;
+    border-radius: 10px;
+    opacity: 0.9;
+    /* border: 2px groove black; */
+    /* box-shadow: 0px 0px 10px black; */
+    display: none;
+    
+}
+#productDiv:hover{
+    transform: scale(0.9);
+    transition: 1s;
+    /* box-shadow: inset 0px 0px 50px black !important; */
+}
+#proImg{
+    width: 200px;
+    height: 200px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .main {
+      width: 500px !important;
+    }
+  }

@@ -24,15 +24,15 @@
                 <h1 id="h1">ADD PRODUCT</h1>
                 <h5 id="h6">Grow Your Business With Us.</h5>
             </div>
-
+            <br>
             <div class="inputDiv1 inpDiv">
 
                 <div class="form-floating mb-3  ">
-                    <input type="text" class="form-control " id="lemail" placeholder="name@example.com">
+                    <input type="text" class="form-control " id="Itemname" placeholder="name@example.com">
                     <label for="floatingInput" class="label">Item Name</label>
                 </div>
                 <div class="form-floating ">
-                    <input type="text" class="form-control" id="lpass" placeholder="Password">
+                    <input type="text" class="form-control" id="ItemCate" placeholder="Password">
                     <label for="floatingPassword" class="label">Item Category</label>
                 </div>
 
@@ -40,28 +40,38 @@
             <div class="inputDiv2 inpDiv">
 
                 <div class="form-floating mb-3  ">
-                    <input type="text" class="form-control " id="lemail" placeholder="name@example.com">
+                    <input type="text" class="form-control " id="ItemDesc" placeholder="name@example.com">
                     <label for="floatingInput" class="label">Item Description</label>
                 </div>
                 <div class="form-floating ">
-                    <input type="number" class="form-control" id="lpass" placeholder="Password">
-                    <label for="floatingPassword" class="label">Price</label>
+                    <input type="number" class="form-control" id="price" placeholder="Password">
+                    <label for="floatingPassword" class="label">Item Price</label>
                 </div>
 
-                <div class="inputDiv inpDiv">
-                    <input type="file" class="form-control" id="itemImg" placeholder="">
+                <div class="inputDiv3 inpDiv">
+                    <input type="file" class="form-control" id="itemImg" placeholder="" >
+                    <button id="upload">Upload</button>
                 </div>
 
             </div>
+            <div class="imageoutDiv">
+                <img src="../SignUp/user-removebg-preview.png" id="imageOutput" alt="">
+            </div>
             <br>
-            <button id="Save">Save & Continue</button>
+            <p id="para">
+
+            </p>
+            <button id="Save">Add Item</button>
+
+            <div id="productDiv">
+
+            </div>
 
         </div>
 
     </div>
 
-
-
+    <script type="module" src="AdminHome.js"></script>
 </body>
 
 </html>
