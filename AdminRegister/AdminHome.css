@@ -54,20 +54,6 @@ body {
     
     display: none;
 }
-#upload{
-    background-color: #666;
-    color: white;
-    border: none;
-    padding: 7px;
-    margin-top: 10px;
-    width: 110px;
-    border-radius: 6px;
-    font-size: large;
-}
-#upload:focus{
-    border: 1px solid white;
-
-}
 
 .inpDiv {
     margin-top: 10px;
@@ -98,19 +84,15 @@ body {
     border: 1px solid white;
 }
 #productDiv{
-    /* background-color: white; */
     margin-top: 40px;
     border-radius: 10px;
     opacity: 0.9;
-    /* border: 2px groove black; */
-    /* box-shadow: 0px 0px 10px black; */
     display: none;
     
 }
 #productDiv:hover{
     transform: scale(0.9);
     transition: 1s;
-    /* box-shadow: inset 0px 0px 50px black !important; */
 }
 #proImg{
     width: 200px;
