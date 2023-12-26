@@ -51,7 +51,7 @@ body {
 }
 
 .imageoutDiv {
-    
+
     display: none;
 }
 
@@ -69,8 +69,12 @@ body {
     font-weight: 700;
     padding-left: 10px;
 }
+.ButtonDiv{
+    display: flex;
+    justify-content: space-between;
+}
 
-#Save {
+#Add {
     background-color: #666;
     color: white;
     border: none;
@@ -80,28 +84,110 @@ body {
     border-radius: 6px;
     font-size: large;
 }
+
+#Add:focus {
+    border: 1px solid white;
+}
+#Save{
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 7px;
+    margin-top: 10px;
+    width: 170px;
+    border-radius: 6px;
+    font-size: large;
+    display: none;
+}
 #Save:focus{
     border: 1px solid white;
 }
-#productDiv{
+#Clear{
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 7px;
+    margin-top: 10px;
+    width: 170px;
+    border-radius: 6px;
+    font-size: large;
+    display: none;
+}
+#Clear:focus{
+    border: 1px solid white;
+}
+
+#productDiv {
     margin-top: 40px;
     border-radius: 10px;
     opacity: 0.9;
     display: none;
-    
 }
-#productDiv:hover{
+
+#proImg {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.774) !important;
+    font-family: cursive;
+    border: 2px solid black !important;
+    box-shadow: inset 0px 0px 50px #666 !important;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 2px black !important;
     transform: scale(0.9);
     transition: 1s;
 }
-#proImg{
-    width: 200px;
-    height: 200px;
+
+#EditBtn {
+    background: #666;
+    /* position: absolute;
+    right: 15px;
+    bottom: 15px; */
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+    font-size: medium;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+
 }
 
+#EditBtn:focus {
+    border: 1px solid black !important;
+}
+
+#DelBtn {
+    background: #666;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+    font-size: medium;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#DelBtn:focus {
+    border: 1px solid black !important;
+}
+.cardBtnDiv{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
 
 @media screen and (max-width: 600px) {
     .main {
-      width: 500px !important;
+        width: 500px !important;
     }
-  }
+}
