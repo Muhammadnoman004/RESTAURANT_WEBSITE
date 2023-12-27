@@ -87,7 +87,7 @@ const getData = async () => {
             ProductID.push(data.doc.id);
             console.log(data.doc.data());
             if(data.type == "removed"){
-                const ProductChildDiv = document.querySelector(".ProductChildDiv");
+                const ProductChildDiv = document.getElementById(data.doc.id);
                 if(ProductChildDiv){
 
                     ProductChildDiv.remove();
@@ -96,7 +96,7 @@ const getData = async () => {
            else if (data.type == "added") {
 
                 productDiv.style.display = "block"
-                productDiv.innerHTML += `<div class = "ProductChildDiv"><div class="card mb-3" style="max-width: 540px;">
+                productDiv.innerHTML += `<div class = "ProductChildDiv" id="${data.doc.id}"><div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col col-md-4">
                     <img src="${data.doc.data().Item_ImageURL}" id="proImg" class="img-fluid rounded-start" alt="...">
@@ -109,7 +109,7 @@ const getData = async () => {
                       <p class="card-text"><small class="text-body-secondary">Last updated 2 mins ago</small></p>
                     </div>
                     <div class = "cardBtnDiv">
-                    <button type="button" id = "EditBtn" onclick = "updateData('${data.doc.id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button>
+                    <button type="button" id = "EditBtn" onclick = "updateData('${data.doc.id}')" data-bs-toggle="modal" data-bs-target="#updateItemModal">Edit</button>
                     <button id = "DelBtn" onclick = "DelData('${data.doc.id}')">Delete</button>
                     </div>
                   </div>
@@ -201,24 +201,6 @@ ClearBtn.addEventListener("click" , async ()=>{
 
 })
 
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-    exampleModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        const recipient = button.getAttribute('data-bs-whatever')
-        // If necessary, you could initiate an Ajax request here
-        // and then do the updating in a callback.
-
-        // Update the modal's content.
-        const modalTitle = exampleModal.querySelector('.modal-title')
-        const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-        modalTitle.textContent = `New message to ${recipient}`
-        modalBodyInput.value = recipient
-    })
-}
 
 window.updateData = updateData
 window.DelData = DelData
