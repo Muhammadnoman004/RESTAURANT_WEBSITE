@@ -42,7 +42,6 @@ body {
 }
 
 #imageOutput {
-    background-color: white;
     border-radius: 360px;
     margin-top: 30px;
     width: 150px;
@@ -144,9 +143,6 @@ body {
 
 #EditBtn {
     background: #666;
-    /* position: absolute;
-    right: 15px;
-    bottom: 15px; */
     padding: 7px;
     padding-left: 10px;
     padding-right: 10px;
@@ -184,6 +180,26 @@ body {
     position: absolute;
     right: 15px;
     bottom: 10px;
+}
+
+#PreviousimageOutput{
+    border-radius: 360px;
+    margin-top: 30px;
+    width: 150px;
+    height: 150px;
+}
+#Close{
+    color: #666;
+    background-color: rgba(179, 176, 176, 0.576)
+}
+#Update{
+    background-color: #666;
+    color: white;
+    border: none;
+
+}
+#Update:focus{
+    border: 2px solid white !important;
 }
 
 @media screen and (max-width: 600px) {

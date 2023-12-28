@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, updateDoc, doc , deleteDoc} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBCk9IrnMaQwaBIc4cE7icTWgyCRnd7nDI",
@@ -26,7 +26,7 @@ let ItemImage = document.querySelector("#itemImg");
 let imageURL;
 let ProductID = [];
 
-    //  Storage //
+//  Storage //
 
 const downloadImageUrl = (file) => {
     return new Promise((resolve, reject) => {
@@ -86,14 +86,14 @@ const getData = async () => {
             console.log(data);
             ProductID.push(data.doc.id);
             console.log(data.doc.data());
-            if(data.type == "removed"){
+            if (data.type == "removed") {
                 const ProductChildDiv = document.getElementById(data.doc.id);
-                if(ProductChildDiv){
+                if (ProductChildDiv) {
 
                     ProductChildDiv.remove();
                 }
             }
-           else if (data.type == "added") {
+            else if (data.type == "added") {
 
                 productDiv.style.display = "block"
                 productDiv.innerHTML += `<div class = "ProductChildDiv" id="${data.doc.id}"><div class="card mb-3" style="max-width: 540px;">
@@ -109,7 +109,7 @@ const getData = async () => {
                       <p class="card-text"><small class="text-body-secondary">Last updated 2 mins ago</small></p>
                     </div>
                     <div class = "cardBtnDiv">
-                    <button type="button" id = "EditBtn" onclick = "updateData('${data.doc.id}')" data-bs-toggle="modal" data-bs-target="#updateItemModal">Edit</button>
+                    <button type="button" id = "EditBtn" onclick = "GetData('${data.doc.id}')" data-bs-toggle="modal" data-bs-target="#updateItemModal">Edit</button>
                     <button id = "DelBtn" onclick = "DelData('${data.doc.id}')">Delete</button>
                     </div>
                   </div>
@@ -169,38 +169,77 @@ SaveBtn.addEventListener("click", async () => {
 
 })
 
-    //  Update  Data From Database  //
+//  get Data for Modal From Database  //
 
-function updateData(id) {
-    console.log(id);
-}
+let UpdateItemName = document.querySelector(".PreviousItemName");
+let UpdateItemCate = document.querySelector(".PreviousItemCate");
+let UpdateItemDesc = document.querySelector(".PreviousItemDesc");
+let UpdateItemPrice = document.querySelector(".PreviousItemPrice");
+let UpdateimageOutput = document.querySelector('#PreviousimageOutput');
 
-    //  Delete Data From Database   //
+async function GetData(id) {
 
- async function DelData(id){
-    await deleteDoc(doc(db, "Add Product", id));
-    
-}
+    const docRef = doc(db, "Add Product", id);
+    const docSnap = await getDoc(docRef);
 
-    //  Clear All Data From Database    //
-
-ClearBtn.addEventListener("click" , async ()=>{
-    productDiv.innerHTML = '';
-    const arr = [];
-    for(let i = 0; i < ProductID.length; i++){
-       arr.push(await deleteDoc(doc(db, "Add Product", ProductID[i])));
-
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        UpdateItemName.value = docSnap.data().Item_Name;
+        UpdateItemCate.value = docSnap.data().Item_Category;
+        UpdateItemDesc.value = docSnap.data().Item_Description;
+        UpdateItemPrice.value = docSnap.data().Item_Price;
+        UpdateimageOutput.src = docSnap.data().Item_ImageURL;
+    } else {
+        console.log("No such document!");
     }
-    Promise.all(arr)
-    .then((res) => {
-      console.log('All item has been deleted');
-    })
-    .catch((err) => {
-      console.log('error-->' , err);
-    })
 
+}
+
+//  Update Data from Database   //
+
+let UpdateBtn = document.querySelector("#Update");
+
+UpdateBtn.addEventListener("click", async (id) => {
+
+    console.log(id);
 })
 
 
-window.updateData = updateData
-window.DelData = DelData
+//  Delete Data From Database   //
+
+async function DelData(id) {
+    await deleteDoc(doc(db, "Add Product", id));
+
+}
+
+//  Clear All Data From Database    //
+
+ClearBtn.addEventListener("click", async () => {
+    productDiv.innerHTML = '';
+    const arr = [];
+    for (let i = 0; i < ProductID.length; i++) {
+        arr.push(await deleteDoc(doc(db, "Add Product", ProductID[i])));
+
+    }
+    Promise.all(arr)
+        .then((res) => {
+            console.log('All item has been deleted');
+        })
+        .catch((err) => {
+            console.log('error-->', err);
+        })
+
+})
+
+let CloseModal = document.querySelector("#Close");
+CloseModal.addEventListener("click", () => {
+
+    UpdateItemName.value = ""
+    UpdateItemCate.value = ""
+    UpdateItemDesc.value = ""
+    UpdateItemPrice.value = ""
+    UpdateimageOutput.src = ""
+})
+
+window.GetData = GetData;
+window.DelData = DelData;
