@@ -119,6 +119,7 @@ const getData = async () => {
                 ClearBtn.style.display = "block";
                 SBtn.style.display = "block";
             }
+
         })
     })
 
@@ -176,12 +177,13 @@ let UpdateItemCate = document.querySelector(".PreviousItemCate");
 let UpdateItemDesc = document.querySelector(".PreviousItemDesc");
 let UpdateItemPrice = document.querySelector(".PreviousItemPrice");
 let UpdateimageOutput = document.querySelector('#PreviousimageOutput');
+let UPDATEITEMID;
 
 async function GetData(id) {
 
     const docRef = doc(db, "Add Product", id);
     const docSnap = await getDoc(docRef);
-
+    UPDATEITEMID = id
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
         UpdateItemName.value = docSnap.data().Item_Name;
@@ -199,9 +201,35 @@ async function GetData(id) {
 
 let UpdateBtn = document.querySelector("#Update");
 
-UpdateBtn.addEventListener("click", async (id) => {
+UpdateBtn.addEventListener("click", async () => {
 
-    console.log(id);
+
+    const previousItemImgUrl = UpdateimageOutput.src;
+    const updatedItemName = UpdateItemName.value;
+    const updatedItemDesc = UpdateItemDesc.value;
+    const updatedItemCate = UpdateItemCate.value;
+    const updatedItemPrice = UpdateItemPrice.value;
+
+    console.log(UPDATEITEMID);
+    const ItemRef = doc(db, "Add Product", UPDATEITEMID);
+
+    console.log(ItemRef);
+
+    await updateDoc(ItemRef, {
+
+        Item_Name: updatedItemName,
+        Item_Category: updatedItemCate,
+        Item_Description: updatedItemDesc,
+        Item_Price: updatedItemPrice,
+        Time: new Date().toLocaleString(),
+
+    });
+    UpdateItemName.value = ""
+    UpdateItemCate.value = ""
+    UpdateItemDesc.value = ""
+    UpdateItemPrice.value = ""
+    UpdateimageOutput.src = ""
+
 })
 
 
