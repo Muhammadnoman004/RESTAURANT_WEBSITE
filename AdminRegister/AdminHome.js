@@ -119,6 +119,30 @@ const getData = async () => {
                 ClearBtn.style.display = "block";
                 SBtn.style.display = "block";
             }
+            else if (data.type == "modified") {
+                let updateItemDiv = document.getElementById(data.doc.id)
+                let UItemid = data.doc.id
+                updateItemDiv.setAttribute("id", UItemid)
+                updateItemDiv.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col col-md-4">
+                    <img src="${data.doc.data().Item_ImageURL}" id="proImg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">${data.doc.data().Item_Name}</h5>
+                      <h6 class="card-title">$${data.doc.data().Item_Price}</h6>
+                      <p class="card-text">${data.doc.data().Item_Description}</p>
+                      <p class="card-text"><small class="text-body-secondary">Last updated 2 mins ago</small></p>
+                    </div>
+                    <div class = "cardBtnDiv">
+                    <button type="button" id = "EditBtn" onclick = "GetData('${data.doc.id}')" data-bs-toggle="modal" data-bs-target="#updateItemModal">Edit</button>
+                    <button id = "DelBtn" onclick = "DelData('${data.doc.id}')">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>`
+            }
 
         })
     })
@@ -126,6 +150,67 @@ const getData = async () => {
 
 }
 getData();
+
+
+
+const UitemImgDiv = document.querySelector(".UitemImgDiv");
+const UitemImg = document.querySelector("#UitemImg");
+
+// UitemImgDiv.addEventListener("click", () => {
+//     UitemImg.click();
+// });
+
+let updateImgUrl;
+
+const updateImgaeUrlLink = (file) => {
+    return new Promise((resolve, reject) => {
+        const restaurantImageRef = ref(
+            storage,`images/${file.name}`
+        );
+        const uploadTask = uploadBytesResumable(restaurantImageRef, file);
+            
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const progress =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                    case "paused":
+                        break;
+                    case "running":
+                        // updImgSpinner.style.display = "block";
+                        break;
+                }
+            },
+            (error) => {
+                reject(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref)
+                    .then((downloadURL) => {
+                        resolve(downloadURL);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            }
+        );
+    });
+};
+
+UitemImg.addEventListener("change", async () => {
+    if (UitemImg.files.length > 0) {
+        const file = UitemImg.files[0];
+        updateImgUrl = await updateImgaeUrlLink(file);
+        if (updateImgUrl) {
+            UpdateimageOutput.src = updateImgUrl;
+        }
+    }
+});
+
+
+
 
 SaveBtn.addEventListener("click", async () => {
     let ItemName = document.querySelector("#Itemname");
@@ -221,6 +306,7 @@ UpdateBtn.addEventListener("click", async () => {
         Item_Category: updatedItemCate,
         Item_Description: updatedItemDesc,
         Item_Price: updatedItemPrice,
+        Item_ImageURL: updateImgUrl,
         Time: new Date().toLocaleString(),
 
     });
